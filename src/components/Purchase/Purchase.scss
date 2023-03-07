@@ -1,0 +1,115 @@
+.cart{
+    align-items: center;
+  .book{
+    padding: 20px;
+    width: 100%;
+    max-width: 55%;
+    min-height: 55%;
+    border: 1px solid aqua;
+    background-color: aquamarine;
+    border-radius: 2px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    transition: .4s;
+    position: relative;
+    text-align: center;
+      &_price{
+        margin-right: 20px;
+      }
+      &_amount-buttons{
+        margin-left: 20px;
+        margin-right: 20px;
+        display: flex;
+        .decrement{
+          &:hover{
+            color:black;
+          }
+        }
+        .increment{
+          &[disabled]{
+            color: black;
+            &:hover{
+              color: black;
+              cursor: not-allowed;
+            }
+          }
+          &:hover{
+            color:black;
+          }
+        }
+        button{
+          font-size: 22px;
+          color: black;
+          transition: .4s;
+          width: 25px;
+          height: 25px;
+          display: flex;
+          align-self: center;
+          justify-content: center;
+          font-weight: bold;
+          &:not(:last-child){
+            margin-right: 10px;
+          }
+        }
+      }
+      &_remove{
+        background-color: transparent;
+        width: 25px;
+        &:hover{
+          svg {
+            fill:aqua;
+            transition: .4s;
+          }
+          &::after{
+            content: "Remove";
+            font-size: 10px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: .4;
+            padding: 5px;
+            border-radius: 10px;
+            color: black;
+            background-color: aqua;
+          }
+        }
+        svg{
+          width: 100%;
+          fill: black;
+          transition: .4s;
+        }
+      }
+      &:hover{
+        border-color: black;
+        background-color: bisque;
+          color: black;
+        transition: .4s;
+        & .book__name{
+          color: black;
+          transition: .2s;
+          &:hover{
+            cursor: pointer;
+            color: black;
+          }
+        }
+      }
+      &_name{
+        width: 20%;
+        color: black;
+        text-decoration: none;
+        transition: .2s;
+        margin-right: 20px;
+      }
+      &_count{
+        width: 20%;
+        margin-right: 20px;
+      }
+      &_total-price{
+        width: 60%;
+        text-align: right;
+      }
+    }
+}

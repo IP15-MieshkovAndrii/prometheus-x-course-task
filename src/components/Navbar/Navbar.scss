@@ -1,0 +1,46 @@
+
+.nav {
+    align-items: center;
+    display: flex;
+}
+
+.svg-icon {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    width: 60px;
+    justify-content: center;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: #032046;
+  }
+  
+  .svg-icon circle {
+    stroke: #032046;
+    stroke-width: 1;
+  }
+  
+.logo-image{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+
+.cart-icon {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    position: relative;
+    width: 60px;
+}
+
+.sign-out{
+  width: 110px;
+  font-size: 12px;
+}

@@ -1,0 +1,93 @@
+@use 'sass:color';
+$hue: 180deg; 
+$hue-adjust: 135deg; 
+
+$hue-contrast: color.hue(color.adjust(hsl($hue, 100%, 50%), $hue: $hue-adjust));
+
+:root {
+  --page-background: #{$hue}, 55%, 12%;
+}
+
+.my-button {
+
+  --text-base: #{$hue}, 25%, 50%;
+  --text-hover: #{$hue + 30}, 25%, 50%;
+  --text-disabled: #{$hue}, 25%, 80%;
+  --shadow-start: #{$hue-contrast}, 100%, 72%;
+  --shadow-end: #{$hue + 5}, 90%, 40%;
+  --shadow-inner: #{$hue}, 90%, 40%;
+
+  color: hsla(var(--text-base), 1);
+  text-transform: uppercase;
+  text-align: center;
+  background: inherit;
+  background-clip: padding-box;
+  border: 5px solid hsla(var(--text-base), 1);
+  cursor: pointer;
+  position: relative;
+  background-color: #e7e7e7;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: .4s;
+  &::before,
+  &::after {
+    content: "";
+    border-radius: inherit;
+    transition: inherit;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  &::before {
+    inset: -0.2em;
+    background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
+    filter: blur(1.2em) saturate(1.2);
+    transform-origin: bottom;
+    transform: scaleY(0.5);
+    opacity: 0;
+  }
+
+  &::after {
+    box-shadow: inset 0 0 0 1px #fff,
+      0 0 0 4px rgba(255, 255, 255, 0.7),
+      1px 1px 0 4px #fff; // outer pixel
+    mix-blend-mode: overlay;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: hsla(var(--text-hover), 1);
+    border-color: transparent;
+    box-shadow: 
+      inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1),
+      inset 0 0 1.4em hsla(var(--shadow-inner), 0.32),
+      0 1px 1px hsla(var(--shadow-inner), 0.32); 
+    &::before,
+    &::after {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  background: hsla(var(--page-background), 1);
+  padding: 1em;
+  position: relative;
+  background-color: #e7e7e7;
+}
+
+.my-button[disabled]{
+    cursor: not-allowed;
+    color: hsla(var(--text-disabled), 1);
+    background-color: #e7e7e7;
+    pointer-events: none;
+    &:hover {
+      color: hsla(var(--text-disabled), 1);
+      background-color: #e7e7e7;
+      transform: none;
+    }
+  }
+  
+  
+  
+  
+  
