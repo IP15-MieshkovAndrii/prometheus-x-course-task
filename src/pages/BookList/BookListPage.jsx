@@ -15,6 +15,7 @@ const BookListPage = () => {
     const [filteredBooks, setFilteredBooks] = useState([])
 
     if (books === 0){
+        books = getBooks(dispatch)
         books = getStoragedBooks()
     }
 
