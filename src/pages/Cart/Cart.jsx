@@ -6,8 +6,14 @@ import { Button } from '../../components/Button/Button';
 import Purchase from '../../components/Purchase/Purchase';
 
 const Cart = () => {
-  const { cartItems, getTotalPrice, cleanCart, purchaseFlag, setPurchaseFlag, updateCartCount, removeFromCart } = useContext(CartContext);
+  const {getTotalPrice, cleanCart,  setPurchaseFlag, updateCartCount, removeFromCart } = useContext(CartContext);
   const cartItemMap = new Map();
+  let cartItems = []
+  if (JSON.parse(localStorage.getItem('cart'))){
+    cartItems = JSON.parse(localStorage.getItem('cart'))
+  } else cartItems = []
+   
+  
   
   cartItems.forEach((cartItem) => {
     const key = cartItem.book.id;

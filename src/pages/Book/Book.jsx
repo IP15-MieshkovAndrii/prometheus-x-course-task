@@ -1,22 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import "./styles.scss";
 import {CartContext} from "../../context/CartContext/CartContext"
 import { Button } from '../../components/Button/Button';
 
 import img from '../../images/imageNotFound.png'
 
-const Book = ({books}) => {
-  const { id } = useParams();
-  const book = books.books.find((book) => book.id === parseInt(id));
-
+const Book = ({book}) => {
   const [count, setCount] = useState(1);
   const [totalCost, setTotalCost] = useState('');
-
   const { addToCart } = useContext(CartContext);
-
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || []);
-
 
 
   const handleCountChange = (e) => {
@@ -58,7 +52,7 @@ const Book = ({books}) => {
       <div className="book">
         <div className="book_wrapper">
           <div className="book_img">
-            <img src={book.image || img} alt="Book image" />
+            <img src={book.image || img} alt="Book" />
           </div>
           <div className="book_container">
             <div className="book_content">
@@ -89,7 +83,7 @@ const Book = ({books}) => {
                 <span className="value">{totalCost}</span>
               </div>
 
-              <Button onClick={handleAddToCart} className="my-button undefined" type="button">Add to Cart</Button>
+              <Button onClick={handleAddToCart} className="undefined" >Add to Cart</Button>
             </form> 
           </div>
         </div>
