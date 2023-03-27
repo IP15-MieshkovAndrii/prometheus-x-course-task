@@ -12,6 +12,7 @@ import './App.scss';
 import { BooksProvider } from '../context/BooksContext/BooksContext';
 import { CartProvider } from '../context/CartContext/CartContext';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+import Main from '../components/providers/Main';
 export function App() {
     document.cookie = "cookieName=value; SameSite=Lax";
     return (
@@ -21,6 +22,7 @@ export function App() {
                     <Header title='JS Band Store' authorName='Mieshkov Andrii'/>
                         <main className="main">
                             <Routes>
+                                <Route path="/" element={<Main/>}/>
                                 <Route path="/signin" element={<SigninPage/>}/>
                                 <Route path="/book/:id" element={<Authorization><SpecificBookPage/></Authorization>}/>,
                                 <Route path="/books" element={<Authorization><BookList/></Authorization>}/>,
