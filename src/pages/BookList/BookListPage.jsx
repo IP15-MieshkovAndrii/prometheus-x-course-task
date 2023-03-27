@@ -3,6 +3,8 @@ import './styles.scss';
 import img from '../../images/search.png'
 import Book from './Book';
 import { ThreeDots } from 'react-loader-spinner';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import { useBooks } from '../../context/BooksContext/useBooks';
 import { getBooks } from '../../context/BooksContext/BooksStorage/BooksStorage';
 
@@ -72,6 +74,16 @@ const BookListPage = () => {
                             <option value="medium">15 &lt; Price &lt; 30</option>
                             <option value="high">Price &gt;= 30</option>
                         </select>
+                        {/* <div className="dropdown_button dropdown">
+                            <button className="btn btn-secondary dropdown-toggle" value={priceRange} onChange={handlePriceFilter} type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All
+                            </button>
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button className="dropdown-item" type="button" value="low">0 &lt; Price &lt; 15</button>
+                                <button className="dropdown-item" type="button" value="medium">15 &lt; Price &lt; 30</button>
+                                <button className="dropdown-item" type="button" value="high">Price &gt;= 30</button>
+                            </div>
+                        </div> */}
                     </div>
                 </div>
                 {books !== 0 ?

@@ -1,3 +1,6 @@
+
+// @import '~bootstrap/scss/bootstrap.scss';
+
 .books {
     padding: 20px;
 }
@@ -41,9 +44,8 @@ img {
 }
 
 .dropdown {
-    border: 2px solid #000;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border: 2.5px solid #000;
+    border-radius: 12px;
     height: 50px;
     position: relative;
     width: 200px;
@@ -58,8 +60,7 @@ img {
     left: 50%;
     position: absolute;
     top: 50%;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 10px;
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     width: 100%;
@@ -69,6 +70,10 @@ img {
 .dropdown_button {
     background: #6134da;
     border: none;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     font-size: 15px;
     height: 100%;
     position: absolute;
@@ -80,6 +85,7 @@ img {
     width: 70%;
     color:#fff
 }
+
 
 .dropdown_list {
     display: none;
