@@ -3,13 +3,9 @@ import './styles.scss';
 import img from '../../images/search.png'
 import Book from './Book';
 import { ThreeDots } from 'react-loader-spinner';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-// import { useBooks } from '../../context/BooksContext/useBooks';
 import { getBooks } from '../../context/BooksContext/BooksStorage/BooksStorage';
 
 const BookListPage = () => {
-    // const {state: { books }, dispatch } = useBooks()
     const [searchTerm, setSearchTerm] = useState('');
     const [priceRange, setPriceRange] = useState('');
     const [books, setBooks] = useState([]);
@@ -20,16 +16,6 @@ const BookListPage = () => {
             setBooks(data)
         })
     }, [])
-
-    // if (books === 0){
-    //     books = getBooks(dispatch)
-    //     books = getStoragedBooks()
-    // }
-
-    // console.log(books)
-    // useEffect(() => {
-    //     const res =  getBooks(dispatch)
-    // } , [dispatch])
 
     useEffect(() => {
         const results = books
@@ -87,7 +73,7 @@ const BookListPage = () => {
                         </div> */}
                     </div>
                 </div>
-                {books !== 0 ?
+                {books.length !== 0 ?
                     <div className="books_content">
                     {
                         filteredBooks?.length === 0 ?
