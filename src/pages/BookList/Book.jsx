@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './styles.scss';
-import img from '../../images/imageNotFound.png'
+import imgN from '../../images/imageNotFound.png'
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button/Button';
 import { CartContext } from '../../context/CartContext/CartContext';
@@ -39,7 +39,7 @@ const Book = ({book}) => {
             <div className="book-card animate_fadeInDown" id={book.id}>
                 <Link to={`/book/${book.id}`  } className="book-link">
                     <div className="book-card_img" id={book.id}>
-                        <img src={book.image || img} alt="Default book image" error="this.src='../img/imageNotFound.png'"/>
+                        <img src={book.image || imgN} alt="Default book" error="this.src='../img/imageNotFound.png'"/>
                     </div>
                     <div className="book-card_content">
                         <h3 className="book-card_title">{title}</h3>

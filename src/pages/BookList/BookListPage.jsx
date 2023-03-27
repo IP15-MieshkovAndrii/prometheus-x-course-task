@@ -39,6 +39,7 @@ const BookListPage = () => {
             if (priceRange === 'low') return book.price < 15;
             if (priceRange === 'medium') return book.price >= 15 && book.price < 30;
             if (priceRange === 'high') return book.price >= 30;
+            return false;
         });
         setFilteredBooks(results)
     }, [priceRange, searchTerm, books])

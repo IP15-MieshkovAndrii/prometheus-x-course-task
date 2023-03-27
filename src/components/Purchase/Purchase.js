@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Trash from "../SVG/Trash";
+// import Trash from "../SVG/Trash";
 import "./Purchase.scss";
 
 const Purchase = ({ key, book, count, price, onCountChange, onClick }) => {
-  const [currentCount, setCurrentCount] = useState(count);
+  const [currentCount] = useState(count);
 
   // const incrementBookHandler = () => {
   //   if (currentCount < 42) {

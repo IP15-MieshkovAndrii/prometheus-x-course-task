@@ -34,7 +34,7 @@ const Book = ({book}) => {
 
   useEffect(() => {
     setTotalCost((count * book.price).toFixed(2));
-  }, [count]);
+  }, [book.price, count]);
 
   const handleAddToCart = () => {
     const cartItem = {
