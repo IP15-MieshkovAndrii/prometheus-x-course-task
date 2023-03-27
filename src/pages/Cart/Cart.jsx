@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { deleteCart } from '../../components/LocalStorage/LocalStorage';
 import './styles.scss';
 import { CartContext } from '../../context/CartContext/CartContext';
 import { Button } from '../../components/Button/Button';
@@ -13,7 +12,6 @@ const Cart = () => {
     cartItems = JSON.parse(localStorage.getItem('cart'))
   } else cartItems = []
    
-  
   
   cartItems.forEach((cartItem) => {
     const key = cartItem.book.id;
@@ -43,7 +41,7 @@ const Cart = () => {
   return (
     <div className='cart'>
       <div className='cart_header'>
-        <Button className='cart_button' disabled={cartItemsArray.length === 0} onClick={handlePurchaseClick}>Purchase</Button>
+        <Button className='cart_button' disabled={cartItemsArray.length === 0} onClick={handlePurchaseClick} type='submit'>Purchase</Button>
       </div>
       {cartItemsArray.length === 0 ? (
         <div>Cart is empty</div>
@@ -55,7 +53,7 @@ const Cart = () => {
               const pricePerUnit = book.price / count;
 
               return (
-                <Purchase book={book} count={count} price={pricePerUnit} onCountChange={(newCount) =>
+                <Purchase key={book.id} book={book} count={count} price={pricePerUnit} onCountChange={(newCount) =>
                   handleCartItemQuantityChange(cartItem.book.id, newCount)
                 } onClick={() => handleCartItemDelete(cartItem.book.id)}/>
               );

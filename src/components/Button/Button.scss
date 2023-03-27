@@ -17,7 +17,7 @@ $hue-contrast: color.hue(color.adjust(hsl($hue, 100%, 50%), $hue: $hue-adjust));
   --shadow-end: #{$hue + 5}, 90%, 40%;
   --shadow-inner: #{$hue}, 90%, 40%;
 
-  color: hsla(var(--text-base), 1);
+
   text-transform: uppercase;
   text-align: center;
   background: inherit;
@@ -38,31 +38,25 @@ $hue-contrast: color.hue(color.adjust(hsl($hue, 100%, 50%), $hue: $hue-adjust));
     inset: 0;
     pointer-events: none;
   }
-  &::before {
-    inset: -0.2em;
-    background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
-    filter: blur(1.2em) saturate(1.2);
-    transform-origin: bottom;
-    transform: scaleY(0.5);
-    opacity: 0;
-  }
 
   &::after {
     box-shadow: inset 0 0 0 1px #fff,
       0 0 0 4px rgba(255, 255, 255, 0.7),
-      1px 1px 0 4px #fff; // outer pixel
+      1px 1px 0 4px #fff; 
     mix-blend-mode: overlay;
     opacity: 0;
   }
 
   &:hover,
   &:focus {
-    color: hsla(var(--text-hover), 1);
-    border-color: transparent;
+    background-color: hsla(180deg, 25%, 70%, 1);
+    border-color: hsla(180deg, 25%, 70%, 1);
     box-shadow: 
-      inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1),
-      inset 0 0 1.4em hsla(var(--shadow-inner), 0.32),
-      0 1px 1px hsla(var(--shadow-inner), 0.32); 
+      0 1px 1px hsla(var(--shadow-inner), 0.32),
+      0 2px 2px hsla(var(--shadow-inner), 0.32),
+      0 4px 4px hsla(var(--shadow-inner), 0.32),
+      0 8px 8px hsla(var(--shadow-inner), 0.32),
+      0 16px 16px hsla(var(--shadow-inner), 0.32);
     &::before,
     &::after {
       transform: none;
@@ -79,6 +73,7 @@ $hue-contrast: color.hue(color.adjust(hsl($hue, 100%, 50%), $hue: $hue-adjust));
     cursor: not-allowed;
     color: hsla(var(--text-disabled), 1);
     background-color: #e7e7e7;
+    border-color: hsla(var(--text-disabled), 1);
     pointer-events: none;
     &:hover {
       color: hsla(var(--text-disabled), 1);

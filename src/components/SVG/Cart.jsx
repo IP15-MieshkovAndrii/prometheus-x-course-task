@@ -1,20 +1,18 @@
-import React, {  useEffect, useState } from 'react';
+import React, {  useEffect, useRef, useState } from 'react';
 import {Link} from "react-router-dom";
-
-
 
 const CartIcon = () => {
     const [amount, setAmount] = useState(0)
-    let total = 0 
+
+    const totalRef = useRef(0);
     useEffect(() => {
         if(JSON.parse(localStorage.getItem('cart'))){
-            JSON.parse(localStorage.getItem('cart')).map(purchase => total+=purchase.count)
-            console.log(total)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        }else total = 0;
-        setAmount(total)
-        total = 0;
-    }, [total])
+            JSON.parse(localStorage.getItem('cart')).map(purchase => totalRef.count+=purchase.count)
+        }else totalRef.count = 0;
+        setAmount(totalRef.count)
+        totalRef.count = 0;
+    }, [totalRef.count])
+
     return (
         <Link to="/cart" className='cart-icon'>
             {amount !== 0 ? <div className="amount">{amount}</div> : <div></div>}

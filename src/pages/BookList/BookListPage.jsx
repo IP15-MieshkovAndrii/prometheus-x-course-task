@@ -3,11 +3,9 @@ import './styles.scss';
 import img from '../../images/search.png'
 import Book from './Book';
 import { ThreeDots } from 'react-loader-spinner';
-// import { useBooks } from '../../context/BooksContext/useBooks';
 import { getBooks } from '../../context/BooksContext/BooksStorage/BooksStorage';
 
 const BookListPage = () => {
-    // const {state: { books }, dispatch } = useBooks()
     const [searchTerm, setSearchTerm] = useState('');
     const [priceRange, setPriceRange] = useState('');
     const [books, setBooks] = useState([]);
@@ -19,16 +17,6 @@ const BookListPage = () => {
         })
     }, [])
 
-    // if (books === 0){
-    //     books = getBooks(dispatch)
-    //     books = getStoragedBooks()
-    // }
-
-    // console.log(books)
-    // useEffect(() => {
-    //     const res =  getBooks(dispatch)
-    // } , [dispatch])
-
     useEffect(() => {
         const results = books
         ?.filter(book => book.title.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -37,6 +25,7 @@ const BookListPage = () => {
             if (priceRange === 'low') return book.price < 15;
             if (priceRange === 'medium') return book.price >= 15 && book.price < 30;
             if (priceRange === 'high') return book.price >= 30;
+            return false;
         });
         setFilteredBooks(results)
     }, [priceRange, searchTerm, books])
@@ -72,9 +61,19 @@ const BookListPage = () => {
                             <option value="medium">15 &lt; Price &lt; 30</option>
                             <option value="high">Price &gt;= 30</option>
                         </select>
+                        {/* <div className="dropdown_button dropdown">
+                            <button className="btn btn-secondary dropdown-toggle" value={priceRange} onChange={handlePriceFilter} type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All
+                            </button>
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button className="dropdown-item" type="button" value="low">0 &lt; Price &lt; 15</button>
+                                <button className="dropdown-item" type="button" value="medium">15 &lt; Price &lt; 30</button>
+                                <button className="dropdown-item" type="button" value="high">Price &gt;= 30</button>
+                            </div>
+                        </div> */}
                     </div>
                 </div>
-                {books !== 0 ?
+                {books.length !== 0 ?
                     <div className="books_content">
                     {
                         filteredBooks?.length === 0 ?

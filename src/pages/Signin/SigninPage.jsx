@@ -28,7 +28,8 @@ const SigninPage = () => {
         </div>
         <form onSubmit={handleSignIn} className="auth_form">
             <label>Username</label>
-            <input onChange={handleUsernameChange} className="input" type="text" id="username" placeholder="type Username" />
+            <input onChange={handleUsernameChange} className="input email" type="text" id="username" placeholder="type Username" />
+            <input onChange={handleUsernameChange} className="input password" type="text" id="username" placeholder="password" />
             <Button className="auth__button" 
                     disabled={username.length < 4 || username.length > 16}>Sign-In</Button>
         </form>
