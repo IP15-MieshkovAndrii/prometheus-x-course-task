@@ -14,7 +14,6 @@ const Cart = () => {
   } else cartItems = []
    
   
-  
   cartItems.forEach((cartItem) => {
     const key = cartItem.book.id;
     const count = cartItem.count;
@@ -55,7 +54,7 @@ const Cart = () => {
               const pricePerUnit = book.price / count;
 
               return (
-                <Purchase book={book} count={count} price={pricePerUnit} onCountChange={(newCount) =>
+                <Purchase key={book.id} book={book} count={count} price={pricePerUnit} onCountChange={(newCount) =>
                   handleCartItemQuantityChange(cartItem.book.id, newCount)
                 } onClick={() => handleCartItemDelete(cartItem.book.id)}/>
               );

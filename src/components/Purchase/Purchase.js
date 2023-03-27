@@ -2,7 +2,7 @@ import { useState } from "react";
 import Trash from "../SVG/Trash";
 import "./Purchase.scss";
 
-const Purchase = ({ book, count, price, onCountChange, onClick }) => {
+const Purchase = ({ key, book, count, price, onCountChange, onClick }) => {
   const [currentCount, setCurrentCount] = useState(count);
 
   // const incrementBookHandler = () => {
@@ -24,7 +24,7 @@ const Purchase = ({ book, count, price, onCountChange, onClick }) => {
   // };
 
   return (
-    <div className="book" id={book.id}>
+    <div className="book" id={key}>
       <span className="book_name">{book.title}</span>
       <span className="book_count">
         {currentCount === 1 ? currentCount + " pc." : currentCount + " pcs."}
