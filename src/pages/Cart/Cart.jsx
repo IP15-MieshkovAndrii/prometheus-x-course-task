@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { deleteCart } from '../../components/LocalStorage/LocalStorage';
 import './styles.scss';
 import { CartContext } from '../../context/CartContext/CartContext';
 import { Button } from '../../components/Button/Button';
@@ -42,7 +41,7 @@ const Cart = () => {
   return (
     <div className='cart'>
       <div className='cart_header'>
-        <Button className='cart_button' disabled={cartItemsArray.length === 0} onClick={handlePurchaseClick}>Purchase</Button>
+        <Button className='cart_button' disabled={cartItemsArray.length === 0} onClick={handlePurchaseClick} type='submit'>Purchase</Button>
       </div>
       {cartItemsArray.length === 0 ? (
         <div>Cart is empty</div>
