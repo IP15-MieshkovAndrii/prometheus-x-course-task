@@ -5,10 +5,7 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-const registeredUsers = [
-  { email: 'user1@example.com', password: 'password1' },
-  { email: 'user2@example.com', password: 'password2' },
-];
+const registeredUsers = [];
 
 app.post('/auth', (req, res) => {
   const { email, password } = req.body;
