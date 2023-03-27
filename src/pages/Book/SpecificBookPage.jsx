@@ -1,11 +1,11 @@
 import * as React from 'react';
 import "./styles.scss";
 import Book from "./Book"
-import { getStoragedBooks } from '../../context/BooksContext/BooksStorage/BooksStorage';
+import { getBooks } from '../../context/BooksContext/BooksStorage/BooksStorage';
 import {useParams} from "react-router-dom";
 
 const SpecificBookPage = () => {
-    const books = getStoragedBooks()
+    const books = getBooks()
     const { id } = useParams();
 
     return (

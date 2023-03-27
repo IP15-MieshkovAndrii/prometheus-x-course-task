@@ -14,6 +14,6 @@ export const getBooks = async () => {
         throw err
     }
 }
-export const getStoragedBooks = () => {
-    return JSON.parse(localStorage.getItem('bookslist'))
-}
+// export const getStoragedBooks = () => {
+//     return JSON.parse(localStorage.getItem('bookslist'))
+// }

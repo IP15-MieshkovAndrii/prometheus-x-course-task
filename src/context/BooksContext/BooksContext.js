@@ -1,10 +1,10 @@
 import React, { createContext, useReducer} from 'react';
-import { getStoragedBooks } from './BooksStorage/BooksStorage';
+import { getBooks } from './BooksStorage/BooksStorage';
 import {INITIAL_BOOKS} from "../../actions";
 
 export const BooksContext = createContext();
 
-const initialState = getStoragedBooks() || [];
+const initialState = getBooks() || [];
 
 export const booksReducer = (state, action) => {
   switch (action.type) {
