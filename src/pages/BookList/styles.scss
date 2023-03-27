@@ -106,7 +106,10 @@ img {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
+}
+.book-card:not(:nth-child(3n)) {
+    margin-right: 20px;
 }
 
 .book-card {
